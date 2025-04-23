@@ -1,29 +1,36 @@
-package model;
+package org.example;
 
-/**
- * The type Utente.
- */
 public class Utente {
-    private final String login;
-    private String password;
+    private String username;
+    private Permessi permessi;
 
-    /**
-     * Instantiates a new Utente.
-     *
-     * @param login    the login
-     * @param password the password
-     */
-    public Utente(String login, String password) {
-        this.login = login;
-        this.password = password;
+    public Utente(String username) {
+        this.username = username;
     }
 
-    /**
-     * Gets login.
-     *
-     * @return the login
-     */
-    public String getLogin() {
-        return login;
+    public void assegnaPermessi(Permessi permessi) {
+        this.permessi = permessi;
     }
+
+    public boolean puòCreare() {
+        return permessi != null && permessi.puòCreare();
+    }
+
+    public boolean puòModificare() {
+        return permessi != null && permessi.puòModificare();
+    }
+
+    public boolean puòEliminare() {
+        return permessi != null && permessi.puòEliminare();
+    }
+
+    public boolean puòSpostare() {
+        return permessi != null && permessi.puòSpostare();
+    }
+
+    public void mostraPermessi() {
+    }
+
+
+
 }
